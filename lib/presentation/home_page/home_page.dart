@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hoteliq/presentation/home_page/custom_widget/filter_item.dart';
+import 'package:hoteliq/presentation/home_page/custom_widget/hotel_card.dart';
 import 'package:hoteliq/state/enums/filters.dart';
 
 class HomePage extends ConsumerWidget {
@@ -98,7 +99,25 @@ class HomePage extends ConsumerWidget {
                   ),
                 )
               ],
-            )
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            Container(
+              color: Colors.transparent,
+              height: 330,
+              child: ListView(
+                padding: EdgeInsets.zero,
+                scrollDirection: Axis.horizontal,
+                children: const [
+                  HotelCard(),
+                  HotelCard(),
+                  HotelCard(),
+                  HotelCard(),
+                  HotelCard(),
+                ],
+              ),
+            ),
           ],
         ),
       ),
