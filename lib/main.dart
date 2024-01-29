@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hoteliq/presentation/home_page/home_page.dart';
 import 'package:hoteliq/presentation/profile_page/profile_page.dart';
 import 'package:hoteliq/presentation/schedule_page/schedule_page.dart';
@@ -7,7 +8,11 @@ import 'package:hoteliq/presentation/search_page/search_page.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    const ProviderScope(
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

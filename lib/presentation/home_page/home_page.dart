@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hoteliq/presentation/home_page/custom_widget/filter_item.dart';
+import 'package:hoteliq/state/enums/filters.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
@@ -10,7 +12,7 @@ class HomePage extends ConsumerWidget {
     return SafeArea(
       child: Container(
         margin: const EdgeInsets.symmetric(
-          horizontal: 16,
+          horizontal: 20,
           vertical: 8,
         ),
         child: Column(
@@ -74,29 +76,28 @@ class HomePage extends ConsumerWidget {
             const SizedBox(
               height: 30,
             ),
+            const FilterSection(),
             const SizedBox(
-              height: 40,
-              // width: 200,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  FilterItem(
-                    title: "Home",
+              height: 30,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Nearby your location",
+                  style: GoogleFonts.plusJakartaSans(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                    // color: Colors.grey,
                   ),
-                  SizedBox(
-                    width: 20,
+                ),
+                TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    'See all',
                   ),
-                  FilterItem(
-                    title: "Market",
-                  ),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  FilterItem(
-                    title: "Coffee",
-                  ),
-                ],
-              ),
+                )
+              ],
             )
           ],
         ),
@@ -105,44 +106,40 @@ class HomePage extends ConsumerWidget {
   }
 }
 
-class FilterItem extends StatelessWidget {
-  const FilterItem({
-    required this.title,
+class FilterSection extends StatelessWidget {
+  const FilterSection({
     super.key,
   });
-  final String title;
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: InkWell(
-        onTap: () {},
-        child: Container(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 15,
-            vertical: 8,
+    return const SizedBox(
+      height: 40,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          FilterItem(
+            filter: Filters.home,
+            title: "Home",
+            icon: Icons.home_outlined,
           ),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: Colors.grey.shade300,
+          SizedBox(
+            width: 20,
           ),
-          child: Row(
-            children: [
-              const Icon(Icons.home_outlined),
-              const SizedBox(
-                width: 10,
-              ),
-              Text(
-                title,
-                style: GoogleFonts.plusJakartaSans(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                  // color: Colors.grey,
-                ),
-              ),
-            ],
+          FilterItem(
+            filter: Filters.market,
+            title: "Market",
+            icon: Icons.shopping_bag_outlined,
           ),
-        ),
+          SizedBox(
+            width: 20,
+          ),
+          FilterItem(
+            filter: Filters.coffee,
+            title: "Coffee",
+            icon: Icons.coffee_outlined,
+          ),
+        ],
       ),
     );
   }
