@@ -1,5 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hoteliq/presentation/home_page/home_page.dart';
+import 'package:hoteliq/presentation/profile_page/profile_page.dart';
+import 'package:hoteliq/presentation/schedule_page/schedule_page.dart';
+import 'package:hoteliq/presentation/search_page/search_page.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 void main() {
@@ -46,51 +50,65 @@ class _MyHomePageState extends State<MyHomePage> {
       body: PageView(
         controller: _pageController,
         children: const [
-          Center(
-            child: Text('Page 1'),
-          ),
-          Center(
-            child: Text('Page 2'),
-          ),
-          Center(
-            child: Text('Page 3'),
-          ),
-          Center(
-            child: Text('Page 4'),
-          ),
+          HomePage(),
+          SchedulePage(),
+          SearchPage(),
+          ProfilePage(),
         ],
       ),
-      bottomNavigationBar: SalomonBottomBar(
-        selectedItemColor: Colors.deepPurple,
-        currentIndex: _currentIndex,
-        onTap: (p0) {
-          _pageController.animateToPage(
-            p0,
-            duration: const Duration(milliseconds: 250),
-            curve: Curves.easeInOut,
-          );
-          setState(() {
-            _currentIndex = p0;
-          });
-        },
-        items: [
-          SalomonBottomBarItem(
-            icon: const Icon(Icons.home),
-            title: const Text("Home"),
+      bottomNavigationBar: Container(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 16,
+        ),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
           ),
-          SalomonBottomBarItem(
-            icon: const Icon(CupertinoIcons.calendar),
-            title: const Text("Schedule"),
-          ),
-          SalomonBottomBarItem(
-            icon: const Icon(CupertinoIcons.search),
-            title: const Text("Search"),
-          ),
-          SalomonBottomBarItem(
-            icon: const Icon(CupertinoIcons.person),
-            title: const Text("Profile"),
-          ),
-        ],
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              blurRadius: 12,
+              offset: const Offset(0, -2),
+            ),
+          ],
+        ),
+        child: SalomonBottomBar(
+          // itemPadding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+          // backgroundColor: Colors.white,
+          selectedItemColor: Colors.deepPurple,
+          unselectedItemColor: Colors.grey,
+          currentIndex: _currentIndex,
+          onTap: (p0) {
+            _pageController.animateToPage(
+              p0,
+              duration: const Duration(milliseconds: 250),
+              curve: Curves.easeInOut,
+            );
+            setState(() {
+              _currentIndex = p0;
+            });
+          },
+          items: [
+            SalomonBottomBarItem(
+              icon: const Icon(Icons.home),
+              title: const Text("Home"),
+            ),
+            SalomonBottomBarItem(
+              icon: const Icon(CupertinoIcons.calendar),
+              title: const Text("Schedule"),
+            ),
+            SalomonBottomBarItem(
+              icon: const Icon(CupertinoIcons.search),
+              title: const Text("Search"),
+            ),
+            SalomonBottomBarItem(
+              icon: const Icon(CupertinoIcons.person),
+              title: const Text("Profile"),
+            ),
+          ],
+        ),
       ),
     );
   }
