@@ -16,8 +16,16 @@ class HorizontalHotelCard extends StatelessWidget {
         vertical: 10,
       ),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(15),
         color: Colors.white,
+        boxShadow: const [
+          BoxShadow(
+            color: Color(0x0A112211),
+            blurRadius: 16,
+            offset: Offset(4, 4),
+            spreadRadius: 0,
+          )
+        ],
       ),
       child: Row(
         children: [

@@ -136,6 +136,7 @@ class SchedulePage extends ConsumerWidget {
                   )
                 ],
               ),
+              const SizedBox(height: 10),
               const HorizontalHotelCard(),
               const SizedBox(height: 20),
               const HorizontalHotelCard(),
