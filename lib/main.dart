@@ -53,12 +53,13 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
+        physics: const NeverScrollableScrollPhysics(),
         controller: _pageController,
-        children: const [
-          HomePage(),
+        children: [
+          const HomePage(),
           SchedulePage(),
-          SearchPage(),
-          ProfilePage(),
+          const SearchPage(),
+          const ProfilePage(),
         ],
       ),
       bottomNavigationBar: Container(
