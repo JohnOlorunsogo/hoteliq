@@ -112,11 +112,21 @@ class HomePage extends ConsumerWidget {
                   padding: EdgeInsets.zero,
                   scrollDirection: Axis.horizontal,
                   children: const [
-                    HotelCard(),
-                    HotelCard(),
-                    HotelCard(),
-                    HotelCard(),
-                    HotelCard(),
+                    HotelCard(
+                        imageUrl: 'https://images.prop24.com/212035976',
+                        tag: "1"),
+                    HotelCard(
+                        imageUrl:
+                            'https://www.usatoday.com/gcdn/-mm-/05b227ad5b8ad4e9dcb53af4f31d7fbdb7fa901b/c=0-64-2119-1259/local/-/media/USATODAY/USATODAY/2014/08/13/1407953244000-177513283.jpg',
+                        tag: "2"),
+                    HotelCard(
+                        imageUrl:
+                            'https://www.richmondehotels.com.ph/wp-content/uploads/2023/07/ERH-Lobby-Main-Photo-Home-Page-scaled.jpg',
+                        tag: "3"),
+                    HotelCard(
+                        imageUrl:
+                            'https://www.tripsavvy.com/thmb/PBXPKYgTWnbYh6IBZ6FBu0RCi7c=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/PMC_3922re2-7a204d0f28cc4d2abacf951df89d19d5.jpg',
+                        tag: "4"),
                   ],
                 ),
               ),
